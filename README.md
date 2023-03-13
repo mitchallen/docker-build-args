@@ -1,6 +1,13 @@
 
 ## Usage
 
+```sh
+docker run -p 3000:3000 --name test-build-args ghcr.io/mitchallen/docker-build-args
+```
+
+* Browse to: http://localhost:3000/
+* Version should match docker version
+
 ### Run locally
 
 ```sh
