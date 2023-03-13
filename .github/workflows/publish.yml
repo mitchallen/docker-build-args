@@ -20,6 +20,6 @@ jobs:
           tag=${GITHUB_REF#refs/tags/}
           tag=${tag:1}
           image=ghcr.io/${GITHUB_REPOSITORY}
-          docker build . --build-arg DOCKER_TAG="$tag" -t ${image}:${tag} -t ${image}:latest
+          docker build . --build-arg DOCKER_TAG="${tag}" -t ${image}:${tag} -t ${image}:latest
           docker push ${image} --all-tags
           
