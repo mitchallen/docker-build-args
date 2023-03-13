@@ -13,6 +13,17 @@ Test docker tag (will appear in version for / response)
 DOCKER_TAG=fubar node server.js
 ```
 
+### Trigger a build
+
+Trigger a build
+Be sure to increment the tag each time.
+
+```sh
+git checkout main
+git tag v1.0.0
+git push origin --tags
+```
+
 ### Build docker container
 
 ```sh
