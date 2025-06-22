@@ -27,7 +27,13 @@ publish:
 	@echo "Switching to main branch..."
 	git checkout main
 	@echo "Incrementing version..."
-	npm version patch
+	-@npm version patch || (\
+	  echo "Tag already exists. Deleting local and remote tag, then retrying..." && \
+	  export TAG=$$(node -p "require('./package.json').version") && \
+	  git tag -d v$$TAG && \
+	  git push --delete origin v$$TAG && \
+	  npm version patch \
+	)
 	@echo "Pushing changes and tags..."
 	git push && git push --tags
 
